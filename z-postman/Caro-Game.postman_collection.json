@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "74629e3c-8926-4d6e-af8c-ae127bbf1695",
+		"name": "Caro-Game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25985731"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Au Duong Phong\",\r\n    \"username\": \"auduongphong123\",\r\n    \"password\": \"nuibachda123\",\r\n    \"email\": \"auduongphong@gmail.com\",\r\n    \"admin\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/user",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/user",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/user/1699261423",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user",
+						"1699261423"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User By Id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Hoang Duoc Su\",\r\n    \"username\": \"hoangduocsu321\",\r\n    \"password\": \"dongta123\",\r\n    \"email\": \"hoangduocsu@gmail.com\",\r\n    \"admin\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/user/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/user/1699267513",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user",
+						"1699267513"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Info",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Au Duong Phong\",\r\n    \"email\": \"auduongphong@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/user/updateInfo/10",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user",
+						"updateInfo",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"auduongphong123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/user/changePassword/10",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user",
+						"changePassword",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json()\r",
+							"pm.globals.set(\"accessToken\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"auduongphong123\",\r\n    \"password\": \"nuibachda123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json()\r",
+							"pm.globals.set(\"accessToken\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Hong That Cong\",\r\n    \"password\": \"cuuchithancai123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/register",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Games",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URL}}/game",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Game By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/game/1699265919",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"game",
+						"1699265919"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Game",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"opponent_name\": \"Hong That Cong\",\r\n    \"score\": 0,\r\n    \"game_type\": \"2 nguoi\",\r\n    \"difficulty\": \"3\",\r\n    \"play_time\": \"12\",\r\n    \"start_time\": \"1970-01-01 00:00:01.000000\",\r\n    \"status\": \"kethuc\",\r\n    \"data\": \"{}\" ,\r\n    \"nextmove\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/game",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Game By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"opponent_name\": \"Hong That Cong\",\r\n    \"score\": 0,\r\n    \"game_type\": \"2 nguoi\",\r\n    \"difficulty\": \"3\",\r\n    \"play_time\": \"12\",\r\n    \"start_time\": \"1970-01-01 00:00:01.000000\",\r\n    \"status\": \"kethuc\",\r\n    \"data\": \"{}\" ,\r\n    \"nextmove\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/game/1699265919",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"game",
+						"1699265919"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login (Admin)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"vuongtrungduong123\",\r\n    \"password\": \"trungthanthong123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/admin",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
