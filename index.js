@@ -39,7 +39,7 @@ app.use(
   cors({
     origin: [
       'http://localhost:3000',
-      'https://caro-game-client-alpha.vercel.app/',
+      'https://caro-game-client-alpha.vercel.app',
     ],
   })
 )
